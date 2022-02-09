@@ -55,7 +55,7 @@ the script will be loaded asynchronously, and the promise will be resolved when 
 #### Example
 
 ```js
-import loadScript from 'load-script';
+import loadScript from 'awesome-load-script';
 
 export const loadWxScript = () =>
   // load script from cdn
