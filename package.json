@@ -1,0 +1,45 @@
+{
+  "name": "awesome-load-script",
+  "version": "1.0.0",
+  "description": "awesome script loading for modern browsers, with promise",
+  "main": "dist/load-script.js",
+  "module": "dist/load-script.esm.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "NODE_ENV=production rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilenceZeng/awesome-load-script.git"
+  },
+  "keywords": [
+    "script",
+    "load",
+    "promise",
+    "async",
+    "typescript",
+    "awesome"
+  ],
+  "author": {
+    "name": "Angus",
+    "url": "https://silencezeng.github.io/",
+    "email": "tsang1205@qq.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SilenceZeng/awesome-load-script/issues"
+  },
+  "homepage": "https://github.com/SilenceZeng/awesome-load-script#readme",
+  "devDependencies": {
+    "create-banner": "^2.0.0",
+    "rollup": "^2.67.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.5.5"
+  }
+}
