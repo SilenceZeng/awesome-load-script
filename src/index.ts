@@ -130,6 +130,7 @@ function _coreFn(scriptUrl: string, options: LoadScriptOption = {}) {
   return promise;
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 async function loadScript(scriptUrl: string, options: LoadScriptOption = {}) {
   return await _coreFn(scriptUrl, options);
 }
