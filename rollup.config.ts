@@ -2,6 +2,7 @@ import createBanner from 'create-banner';
 import typescript from 'rollup-plugin-typescript2';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser';
+import { eslint } from 'rollup-plugin-eslint'
 import pkg from './package.json';
 
 const name = 'loadScript';
@@ -43,6 +44,7 @@ export default {
     include: 'src/**',
   },
   plugins: [
+    eslint(),
     // Compile TypeScript files
     typescript({ useTsconfigDeclarationDir: true }),
     // Resolve source maps to the original source

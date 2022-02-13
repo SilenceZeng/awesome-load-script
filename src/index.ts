@@ -5,7 +5,7 @@ function addDomEvent<D extends EventTarget, K extends string>(
   dom: D,
   type: K,
   listener: EventListenerOrEventListenerObject,
-  options?: boolean | AddEventListenerOptions
+  options?: boolean | AddEventListenerOptions,
 ): () => void {
   dom.addEventListener(type, listener, options);
   let isRemoved = false;
@@ -42,7 +42,7 @@ function _coreFn(scriptUrl: string, options: LoadScriptOption = {}) {
 
   async function resolveExposeValue() {
     // delay 0s
-    await new Promise((resolve) => {
+    await new Promise(resolve => {
       setTimeout(resolve, 0);
     });
     if (exposeGlobalName) {
@@ -52,6 +52,7 @@ function _coreFn(scriptUrl: string, options: LoadScriptOption = {}) {
         }
         return exposeMap.get(scriptUrl);
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const exposeVal = window[exposeGlobalName as any];
         if (cleanGlobal && hasKey(window, exposeGlobalName)) {
           delete window[exposeGlobalName];
@@ -76,7 +77,7 @@ function _coreFn(scriptUrl: string, options: LoadScriptOption = {}) {
   Object.assign(
     scriptElm,
     { async: true, type: 'text/javascript', charset: 'utf-8' },
-    scriptAttrs
+    scriptAttrs,
   );
   scriptElm.setAttribute('src', scriptUrl);
   scriptElm.setAttribute('data-create-by', 'loadScript');
@@ -90,7 +91,7 @@ function _coreFn(scriptUrl: string, options: LoadScriptOption = {}) {
         resolve(resolveExposeValue());
         !loadedUrls.has(scriptUrl) && loadedUrls.add(scriptUrl);
       },
-      { once: true }
+      { once: true },
     );
 
     const rm2 = addDomEvent(
@@ -101,7 +102,7 @@ function _coreFn(scriptUrl: string, options: LoadScriptOption = {}) {
         const err = new Error(`loadScriptError 『${scriptUrl}』`);
         throwError ? reject(err) : resolve(err);
       },
-      { once: true }
+      { once: true },
     );
 
     // window error
@@ -112,12 +113,12 @@ function _coreFn(scriptUrl: string, options: LoadScriptOption = {}) {
           Object.assign(event.error, {
             lineno: event.lineno,
             colno: event.colno,
-          })
+          }),
         );
       }
     }) as EventListener);
 
-    const removeAllHandler = () => [rm1, rm2, rm3].forEach((fn) => fn());
+    const removeAllHandler = () => [rm1, rm2, rm3].forEach(fn => fn());
 
     document.documentElement.appendChild(scriptElm);
   }).finally(() => {
