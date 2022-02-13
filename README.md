@@ -2,6 +2,11 @@
 
 > awesome script loading for modern browsers, with promise
 
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/SilenceZeng/awesome-load-script)
+[![Downloads](https://img.shields.io/npm/dm/awesome-load-script.svg)](https://www.npmjs.com/package/awesome-load-script)
+[![Version](https://img.shields.io/npm/v/awesome-load-script.svg)](https://www.npmjs.com/package/awesome-load-script)
+[![Gzip Size](https://img.shields.io/bundlephobia/minzip/awesome-load-script.svg)](https://unpkg.com/awesome-load-script/dist/load-script.js)
+
 ## Getting started
 
 ### Install
